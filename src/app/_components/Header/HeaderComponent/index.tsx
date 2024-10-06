@@ -1,15 +1,37 @@
-import React from 'react'
-import { Header } from '../../../../payload/payload-types'
-import Link from 'next/link'
-import { Gutter } from '../../Gutter'
+'use client'
 
-const HeaderComponent = ( {header}: { header: Header} ) => {
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+import { Header } from '../../../../payload/payload-types'
+import { noHeaderFooterUrls } from '../../../constants'
+import { Gutter } from '../../Gutter'
+import { HeaderNav } from '../Nav'
+
+import classes from './index.module.scss'
+
+const HeaderComponent = ({ header }: { header: Header }) => {
+  const pathname = usePathname()
+
   return (
-    <nav>
-      <Gutter>
+    <nav
+      className={[classes.header, noHeaderFooterUrls.includes(pathname) && classes.hide]
+        .filter(Boolean)
+        .join('')}
+    >
+      <Gutter className={classes.wrap}>
         <Link href="/">
-          <img src="/logo-black.svg" alt="logo" />
+          <Image
+            src="/logo-black.svg"
+            alt="logo"
+            width={170}
+            height={50}
+            className={classes.logo}
+          />
         </Link>
+        <HeaderNav header={header} />
       </Gutter>
     </nav>
   )
