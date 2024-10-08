@@ -25,7 +25,7 @@ export default async function Hero() {
           </p>
         </div>
 
-        {/* <div className="mb-12 flex w-full md:mb-16 lg:w-2/3">
+         <div className="mb-12 flex w-full md:mb-16 lg:w-2/3">
           <div className="relative left-12 top-12 z-10 -ml-12 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:left-16 md:top-16 lg:ml-0">
             <Image
               src={urlFor(data.image1).url()}
@@ -47,7 +47,7 @@ export default async function Hero() {
               priority
             /> 
           </div>
-        </div> */}
+        </div> 
       </div>
 
       <div className="flex flex-col items-center justify-between gap-8 md:flex-row">

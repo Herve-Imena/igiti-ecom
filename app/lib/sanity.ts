@@ -1,6 +1,13 @@
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
+type ImageSource = {
+  _type: string;
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+};
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
   dataset: "production",
