@@ -2,16 +2,16 @@ import Image from "next/image";
 import { client, urlFor } from "../lib/sanity";
 import Link from "next/link";
 
-// async function getData() {
-//   const query = "*[_type == 'heroImage'][0]";
+ async function getData() {
+   const query = "*[_type == 'heroImage'][0]";
 
-//   const data = await client.fetch(query);
+  const data = await client.fetch(query);
 
-//   return data;
-// }
+  return data;
+ }
 
 export default async function Hero() {
-//   const data = await getData();
+  const data = await getData();
   return (
     <section className="mx-auto max-w-2xl px-4 sm:pb-6 lg:max-w-7xl lg:px-8">
       <div className="mb-8 flex flex-wrap justify-between md:mb-16">
