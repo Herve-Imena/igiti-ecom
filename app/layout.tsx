@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Igit Ecom",
+  title: "igit Ecom",
   description: "Get your puzzles today",
   icons: {
     icon: '/logo.svg'

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ShoppingBag } from "lucide-react";
+import Image from "next/image";
 
 
 const links = [
@@ -21,11 +22,21 @@ const Navbar = () => {
   return (
     <header className="mb-8 border-b">
       <div className="flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
-        <Link href="/">
-          <h1 className="text-2xl md:text-4xl font-bold">
-            Igiti<span className="text-primary">ecom</span>
-          </h1>
-        </Link>
+      <Link href="/" className="flex items-center space-x-4">
+      
+      <Image
+        src='/logo.svg' 
+        alt="logo"
+        className="object-contain"
+        width={90} 
+        height={90}
+        priority
+      />
+      <h1 className="text-2xl md:text-4xl font-bold">
+        Igiti<span className="text-primary">ecom</span>
+      </h1>
+    </Link>
+
 
         <nav className="hidden gap-12 lg:flex 2xl:ml-16">
           {links.map((link, idx) => (
