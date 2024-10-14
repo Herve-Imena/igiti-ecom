@@ -1,39 +1,30 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import CartProvider from "./components/Providers";
 import Navbar from "./components/Navbar";
+import ShoppingCartModal from "./components/ShoppingCartModal";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "igit Ecom",
-  description: "Get your puzzles today",
-  icons: {
-    icon: '/logo.svg'
-  }
+  title: "Igit Ecom",
+  description: "Bringing Africa to life",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar />
-        {children}
+      <body className={inter.className}>
+        <CartProvider>
+          <Navbar />
+          <ShoppingCartModal />
+          {children}
+        </CartProvider>
       </body>
     </html>
   );
